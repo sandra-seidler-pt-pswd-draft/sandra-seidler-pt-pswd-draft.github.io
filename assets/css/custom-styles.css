@@ -1,0 +1,60 @@
+.green {
+    color: #7b8f67 !important;
+}
+
+.purple {
+    color: #4b0f55 !important;
+}
+
+.price {
+    color: #7b8f67 !important;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.8em !important;
+}
+
+
+.steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.step {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 1.5em;
+    flex: 1 1 280px;
+    max-width: 500px;
+    text-align: left;
+    position: relative;
+}
+
+.step-number {
+    background: #7b8f67;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.step-text p {
+    margin: 0;
+    font-size: 1em;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

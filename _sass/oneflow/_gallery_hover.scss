@@ -1,0 +1,31 @@
+/* Gallery Hover Effect */
+figure.third {
+    display: flex; /* Assume flexbox for row layout */
+    flex-wrap: wrap; /* Allow wrapping if needed, but we'll try to prevent it */
+    justify-content: space-around; /* Distribute items evenly */
+    margin: 0 -5px; /* Counteract the margin on children to keep overall width */
+}
+
+figure.third a {
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
+    line-height: 0;
+    font-size: 0;
+    margin: 5px; /* Margin around each image */
+    width: calc(33.33% - 10px); /* 33.33% for 3 items, minus 2*5px for left/right margin */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+figure.third a img {
+    display: block;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: top;
+}
+
+figure.third a:hover img {
+    transform: scale(1.1);
+}

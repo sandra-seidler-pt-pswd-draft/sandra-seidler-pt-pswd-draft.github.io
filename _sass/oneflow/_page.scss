@@ -1,0 +1,542 @@
+/* ==========================================================================
+   PAGE
+   ========================================================================== */
+
+#main {
+  @include clearfix;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  -webkit-animation: $intro-transition;
+  animation: $intro-transition;
+  max-width: 100%;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+
+  @include breakpoint($x-large) {
+    max-width: $max-width;
+  }
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.initial-content,
+.search-content {
+  flex: 1 0 auto;
+}
+
+.page {
+  .page__inner-wrap {
+    float: left;
+    margin-top: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    clear: both;
+
+    .page__content,
+    .page__meta,
+    .page__share {
+      position: relative;
+      float: left;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      clear: both;
+    }
+  }
+}
+
+.page__title {
+  margin-top: 0;
+  line-height: 1;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  & + .page__meta {
+    margin-top: -0.5em;
+  }
+}
+
+.page__lead {
+  font-family: $global-font-family;
+  font-size: $type-size-4;
+  text-align: center;
+}
+
+.page__content {
+
+text-align: center;
+
+  h2 {
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $border-color;
+  }
+
+	h1, h2, h3, h4, h5, h6 {
+		.header-link {
+			position: relative;
+			left: 0.5em;
+			opacity: 0;
+			font-size: 0.8em;
+			-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+			-moz-transition: opacity 0.2s ease-in-out 0.1s;
+			-o-transition: opacity 0.2s ease-in-out 0.1s;
+			transition: opacity 0.2s ease-in-out 0.1s;
+		}
+
+		&:hover .header-link {
+			opacity: 1;
+		}
+	}
+
+  p,
+  li,
+  dl {
+    font-size: 1em;
+  }
+
+  /* paragraph indents */
+  p {
+    margin: 0 0 $indent-var;
+
+    /* sibling indentation*/
+    @if $paragraph-indent == true {
+      & + p {
+        text-indent: $indent-var;
+        margin-top: -($indent-var);
+      }
+    }
+  }
+
+  a:not(.btn) {
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+      }
+    }
+  }
+
+  :not(pre) > code {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size: 0.8em;
+    background: $code-background-color;
+    border-radius: $border-radius;
+
+    &::before,
+    &::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"; /* non-breaking space*/
+    }
+  }
+
+  dt {
+    margin-top: 1em;
+    font-family: $global-font-family;
+    font-weight: bold;
+  }
+
+  dd {
+    margin-left: 1em;
+    font-family: $global-font-family;
+    font-size: $type-size-6;
+  }
+
+  .small {
+    font-size: $type-size-6;
+  }
+
+  /* blockquote citations */
+  blockquote + .small {
+    margin-top: -1.5em;
+    padding-left: 1.25rem;
+  }
+}
+
+.page__hero {
+
+  position: relative;
+  margin-bottom: 2em;
+  @include clearfix;
+  -webkit-animation: $intro-transition;
+  animation: $intro-transition;
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+
+  &--overlay {
+    position: relative;
+    margin-bottom: 2em;
+    padding: 3em 0;
+    @include clearfix;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-animation: $intro-transition;
+    animation: $intro-transition;
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+
+    a {
+      color: #fff;
+    }
+
+    .wrapper {
+      padding-left: 1em;
+      padding-right: 1em;
+      text-align: center;
+
+      @include breakpoint($x-large) {
+        max-width: $x-large;
+      }
+    }
+
+    .page__title,
+    .page__meta,
+    .page__lead,
+    .btn {
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(#000, 0.5);
+      text-align: center;
+    }
+
+    .page__title {
+      font-size: $type-size-2;
+
+      @include breakpoint($small) {
+        font-size: $type-size-1;
+      }
+    }
+  }
+}
+
+.page__hero-image {
+  width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+.page__hero-caption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 2px 5px;
+  color: #fff;
+  font-family: $caption-font-family;
+  font-size: $type-size-7;
+  background: #000;
+  text-align: right;
+  z-index: 5;
+  opacity: 0.5;
+  border-radius: $border-radius 0 0 0;
+
+  @include breakpoint($large) {
+    padding: 5px 10px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+
+/*
+   background-image
+   ========================================================================== */
+
+.bg {
+  background-image: url("/assets/images/header.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 0;
+
+    /* Overlay */
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+  @media (max-width: 768px) {
+    background-image: url("/assets/images/header.webp");
+    background-size: contain;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+  }
+}
+
+.bg-overlay {
+  &::after {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.bg-overlay-dark {
+  &::after {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.bg-overlay-primary {
+  &::after {
+    background-color: rgba($primary-color, 0.8);
+  }
+}
+
+.bg-overlay-secondary {
+  &::after {
+    background-color: rgba($link-color, 0.8);
+  }
+}
+
+.bg-overlay-tertiary {
+  &::after {
+    background-color: rgba($tertiary-color, 0.8);
+  }
+}
+
+.bg-overlay-quaternary {
+  &::after {
+    background-color: rgba($quaternary-color, 0.8);
+  }
+}
+
+.bg-overlay-gradient-dark {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+  }
+}
+
+.bg-overlay-gradient-primary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($primary-color, 0.9), rgba($primary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-secondary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($link-color, 0.9), rgba($link-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-tertiary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($tertiary-color, 0.9), rgba($tertiary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-quaternary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($quaternary-color, 0.9), rgba($quaternary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-radial-dark {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+  }
+}
+
+.bg-overlay-gradient-radial-primary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($primary-color, 0.1), rgba($primary-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-radial-secondary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($link-color, 0.1), rgba($link-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-radial-tertiary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($tertiary-color, 0.1), rgba($tertiary-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-radial-quaternary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($quaternary-color, 0.1), rgba($quaternary-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-horizontal-dark {
+  &::after {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+  }
+}
+
+.bg-overlay-gradient-horizontal-primary {
+  &::after {
+    background-image: linear-gradient(to right, rgba($primary-color, 0.9), rgba($primary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-horizontal-secondary {
+  &::after {
+    background-image: linear-gradient(to right, rgba($link-color, 0.9), rgba($link-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-horizontal-tertiary {
+  &::after {
+    background-image: linear-gradient(to right, rgba($tertiary-color, 0.9), rgba($tertiary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-horizontal-quaternary {
+  &::after {
+    background-image: linear-gradient(to right, rgba($quaternary-color, 0.9), rgba($quaternary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-diagonal-dark {
+  &::after {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+  }
+}
+
+.bg-overlay-gradient-primary {
+  &::after {
+    background-image: linear-gradient(45deg, rgba($primary-color, 0.9), rgba($primary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-secondary {
+  &::after {
+    background-image: linear-gradient(45deg, rgba($link-color, 0.9), rgba($link-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-tertiary {
+  &::after {
+    background-image: linear-gradient(45deg, rgba($tertiary-color, 0.9), rgba($tertiary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-quaternary {
+  &::after {
+    background-image: linear-gradient(45deg, rgba($quaternary-color, 0.9), rgba($quaternary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-cross-dark {
+  &::after {
+    background-image: linear-gradient(0, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+  }
+}
+
+.bg-overlay-gradient-cross-primary {
+  &::after {
+    background-image: linear-gradient(0, rgba($primary-color, 0.9), rgba($primary-color, 0.1)), linear-gradient(90deg, rgba($primary-color, 0.9), rgba($primary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-cross-secondary {
+  &::after {
+    background-image: linear-gradient(0, rgba($link-color, 0.9), rgba($link-color, 0.1)), linear-gradient(90deg, rgba($link-color, 0.9), rgba($link-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-cross-tertiary {
+  &::after {
+    background-image: linear-gradient(0, rgba($tertiary-color, 0.9), rgba($tertiary-color, 0.1)), linear-gradient(90deg, rgba($tertiary-color, 0.9), rgba($tertiary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-cross-quaternary {
+  &::after {
+    background-image: linear-gradient(0, rgba($quaternary-color, 0.9), rgba($quaternary-color, 0.1)), linear-gradient(90deg, rgba($quaternary-color, 0.9), rgba($quaternary-color, 0.1));
+  }
+}
+
+.bg-overlay-gradient-elliptical-dark {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+  }
+}
+
+.bg-overlay-gradient-elliptical-primary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($primary-color, 0.1), rgba($primary-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-elliptical-secondary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($link-color, 0.1), rgba($link-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-elliptical-tertiary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($tertiary-color, 0.1), rgba($tertiary-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-elliptical-quaternary {
+  &::after {
+    background-image: radial-gradient(ellipse at center, rgba($quaternary-color, 0.1), rgba($quaternary-color, 0.9));
+  }
+}
+
+.bg-overlay-gradient-silhuette-dark {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.9) 100%);
+  }
+}
+
+.bg-overlay-gradient-silhuette-primary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($primary-color, 0.9) 0%, rgba($primary-color, 0.1) 50%, rgba($primary-color, 0.9) 100%);
+  }
+}
+
+.bg-overlay-gradient-silhuette-secondary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($link-color, 0.9) 0%, rgba($link-color, 0.1) 50%, rgba($link-color, 0.9) 100%);
+  }
+}
+
+.bg-overlay-gradient-silhuette-tertiary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($tertiary-color, 0.9) 0%, rgba($tertiary-color, 0.1) 50%, rgba($tertiary-color, 0.9) 100%);
+  }
+}
+
+.bg-overlay-gradient-silhuette-quaternary {
+  &::after {
+    background-image: linear-gradient(to bottom, rgba($quaternary-color, 0.9) 0%, rgba($quaternary-color, 0.1) 50%, rgba($quaternary-color, 0.9) 100%);
+  }
+}
+.page__title--painted {
+  background: linear-gradient(135deg, $tertiary-color 0%, $primary-color 100%);
+  padding: 0.3em 0.6em;
+  border-radius: 5px;
+  display: inline-block;
+  color: #fff;
+}
+

@@ -1,0 +1,17 @@
+# main links
+main:
+  - title: "Zusammenarbeit"
+    url: /#zusammenarbeit
+    blank: false
+
+  - title: "Über Mich"
+    url: /#ueber-mich
+    blank: false
+
+  - title: "Preise"
+    url: /#preise
+    blank: false
+
+  - title: "Kontakt"
+    url: /#kontakt
+    blank: false
