@@ -12,7 +12,9 @@ $secondary-color: #bee5fa !default;        // turquoise
 $tertiary-color: #96aa7e !default;         // matt green
 $quaternary-color: #ecb390 !default;       // orange-beige
 
+
 $info-color: $secondary-color;
+$success-color: $tertiary-color;
 
 /* Layout & border */
 $border-color: mix(#fff, $text-color, 75%) !default;
